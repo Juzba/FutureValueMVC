@@ -4,51 +4,52 @@
 
 @model FutureValueModel
 
-<div>
+<div style="min-width:800px">
 
     <h1 style="font-size: 5rem">Future Value Calculator</h1>
 
-
+    <div class="text-danger" asp-validation-summary="All"></div>
     <ul class="m-5 fs-4">
         <li>Please enter a monthly investment.</li>
         <li>Yearly interest rate must be between 0.1 and 10.0.</li>
         <li>Number of years must be between 1 and 50</li>
     </ul>
 
-    <form asp-action="" method="post" class="fs-4 text-nowrap">
+    <form asp-action="" method="post" class="fs-4 text-nowrap w-100">
 
-        <div class="mb-3 row d-flex align-items-center">
-            <label asp-for="@Model.Investment" class="col-sm-2 col-form-label just">Monthly Investment:</label>
-            <div class="col-sm-10 w-25 ms-5">
+        <div class="mb-3 row d-flex align-items-center gap-4" style="min-width:100px">
+            <label asp-for="@Model.Investment" style="min-width:300px" class="col-sm-2 col-form-label just">Monthly Investment:</label>
+            <div class="col-sm-10 w-25" style="min-width:300px">
                 <input asp-for="@Model.Investment" type="number" class="form-control">
             </div>
         </div>
 
-        <div class="mb-3 row d-flex align-items-center">
-            <label asp-for="@Model.YearlyRate" class="col-sm-2 col-form-label">Yearly Interest Rate:</label>
-            <div class="col-sm-10 w-25 ms-5">
+        <div class="mb-3 row d-flex align-items-center gap-4">
+            <label asp-for="@Model.YearlyRate" style="min-width:300px" class="col-sm-2 col-form-label">Yearly Interest Rate:</label>
+            <div class="col-sm-10 w-25" style="min-width:300px">
                 <input asp-for="@Model.YearlyRate" type="number" class="form-control">
             </div>
         </div>
 
-        <div class="mb-3 row d-flex align-items-center">
-            <label asp-for="@Model.YearsNumber" class="col-sm-2 col-form-label">Number of Years:</label>
-            <div class="col-sm-10 w-25 ms-5">
+        <div class="mb-3 row d-flex align-items-center gap-4">
+            <label asp-for="@Model.YearsNumber" style="min-width:300px" class="col-sm-2 col-form-label">Number of Years:</label>
+            <div class="col-sm-10 w-25" style="min-width:300px">
                 <input asp-for="@Model.YearsNumber" type="number" class="form-control">
             </div>
         </div>
 
-        <div class="mb-3 row d-flex align-items-center">
-            <label asp-for="@Model.FutureValue" class="col-sm-2 col-form-label">Number of Years:</label>
-            <div class="col-sm-10 w-25 ms-5">
-                <input asp-for="@Model.FutureValue" type="number" value="@Model.FutureValue" class="form-control" readonly>
+        <div class="mb-3 row d-flex align-items-center gap-4">
+            <label for="FV" style="min-width:300px" class="col-sm-2 col-form-label">Number of Years:</label>
+            <div class="col-sm-10 w-25" style="min-width:300px">
+                <span id="FV" type="number" class="">@ViewBag.FutureValue </span>
             </div>
         </div>
 
         <div>
            <button type="submit" class="btn btn-outline-info">Calculate</button>
-            <button asp-controller="Home" asp-action="Index" class="btn btn-outline-info">Clear</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-info">Clear</a>
         </div>
+
     </form>
 
 
