@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FutureValueMVC.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace FutureValueMVC.Controllers
 {
@@ -6,7 +7,8 @@ namespace FutureValueMVC.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            FutureValueModel valueModel = new();
+            return View(valueModel);
         }
     }
 }
